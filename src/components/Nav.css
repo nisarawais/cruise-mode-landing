@@ -1,0 +1,80 @@
+/* ── Fixed navigation bar ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(8, 12, 24, 0.80);  /* semi-transparent dark background */
+  backdrop-filter: blur(20px);          /* frosted glass blur effect */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Logo: blue dot + "CruiseMode" text */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* The pulsing blue circle in the logo */
+.nav-logo .dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 14px var(--glow);
+}
+
+/* Horizontal list of nav links */
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+/* "Download Free" button in the top-right corner */
+.nav-cta {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.nav-cta:hover {
+  background: var(--blue-mid);
+  transform: translateY(-1px);
+}
+
+/* Hide nav links on mobile — hamburger menu not implemented yet */
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+}
+
+/* Light mode: swap the frosted glass from dark to white */
+@media (prefers-color-scheme: light) {
+  .nav { background: rgba(255, 255, 255, 0.85); }
+}

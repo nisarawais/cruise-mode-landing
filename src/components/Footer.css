@@ -1,0 +1,59 @@
+/* ── Footer — horizontal bar at the bottom of the page ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* wraps on small screens */
+  gap: 16px;
+}
+
+/* Logo: small blue circle + "CruiseMode" text */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* Blue gradient circle (no pulse animation in footer — just static) */
+.footer-logo .dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+}
+
+/* Copyright text */
+footer > p {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* Links row */
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* On mobile: stack everything vertically */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 20px;
+  }
+}

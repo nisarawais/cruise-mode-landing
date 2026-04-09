@@ -1,0 +1,42 @@
+/* ── Focus mode cards grid ── */
+.modes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 56px;
+}
+
+/* Individual mode card */
+.mode-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default; /* no pointer since these aren't clickable */
+}
+
+/* Subtle blue tint on hover */
+.mode-card:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+/* Big emoji at the top of each card */
+.mode-card .emoji {
+  font-size: 36px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.mode-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.mode-card p {
+  font-size: 13px;
+  color: var(--text-dim);
+}

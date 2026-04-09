@@ -1,0 +1,232 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   App.css — Global styles & CSS variables
+
+   HOW TO CUSTOMISE COLOURS:
+   Change the values in :root {} below. Every component uses these variables,
+   so editing here updates the entire site at once.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Background shades (darkest → slightly lighter) ── */
+  --bg:       #080C18;   /* page background */
+  --bg2:      #0E1220;   /* cards, nav, mockup */
+  --bg3:      #141828;   /* mockup top bar, deep insets */
+
+  /* ── Brand colours ── */
+  --blue:     #2563EB;   /* primary blue — buttons, logo dot */
+  --blue-mid: #3B82F6;   /* slightly lighter blue — hover states, stat numbers */
+  --cyan:     #06B6D4;   /* cyan accent used in gradients */
+
+  /* ── Text ── */
+  --text:     #F1F5FF;   /* main white text */
+  --text-dim: #8B93AC;   /* secondary/muted text */
+
+  /* ── Borders & glow ── */
+  --border:   rgba(255, 255, 255, 0.07);  /* subtle white border */
+  --glow:     rgba(37, 99, 235, 0.35);    /* blue glow for the logo dot */
+}
+
+html {
+  scroll-behavior: smooth; /* smooth scrolling when clicking nav links */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden; /* prevent horizontal scroll on small screens */
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Shared section layout — used by Features, HowItWorks, FocusModes
+   ───────────────────────────────────────────────────────────────────────────── */
+
+section {
+  padding: 100px 24px;
+}
+
+/* Constrains section content to a max width and centres it */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Small label above section headings e.g. "FEATURES", "HOW IT WORKS" */
+.section-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--blue-mid);
+  margin-bottom: 14px;
+}
+
+/* Section headings */
+h2 {
+  font-size: clamp(30px, 4vw, 48px); /* scales with screen width */
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+/* Paragraph under section heading */
+.section-sub {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Buttons — reused across Hero and DownloadCTA
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Blue gradient primary button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  color: #fff;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 32px rgba(37, 99, 235, 0.4);
+  transition: transform 0.15s, box-shadow 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 48px rgba(37, 99, 235, 0.55);
+}
+
+/* Transparent border button */
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 15px 32px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Fade + slide up — used on hero elements */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply these classes to add staggered animation delays */
+.fade-up   { animation: fadeUp 0.7s ease both; }
+.fade-up-2 { animation: fadeUp 0.7s 0.15s ease both; }
+.fade-up-3 { animation: fadeUp 0.7s 0.30s ease both; }
+.fade-up-4 { animation: fadeUp 0.7s 0.45s ease both; }
+
+/* Pulsing blue glow on the logo dot */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--glow); }
+  50%       { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); }
+}
+
+.pulse { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Light mode — automatically applied when the user's OS/browser is on light mode
+   (System Settings → Appearance → Light on Mac/iPhone/Android/Windows)
+
+   HOW IT WORKS:
+   We just override the CSS variables defined in :root above.
+   Every component that uses var(--bg), var(--text), etc. updates automatically.
+   You don't need to touch any component file.
+
+   TO CUSTOMISE LIGHT COLOURS: edit the values inside this block.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* ── Light backgrounds ── */
+    --bg:       #FFFFFF;   /* page background — pure white */
+    --bg2:      #F1F5FF;   /* cards, nav, stats band — very light blue-grey */
+    --bg3:      #E4EAFB;   /* deeper insets e.g. mockup top bar */
+
+    /* ── Brand colours — slightly adjusted for white backgrounds ── */
+    --blue:     #2563EB;   /* stays the same */
+    --blue-mid: #1D4ED8;   /* slightly darker so it pops on white */
+    --cyan:     #0891B2;   /* slightly darker cyan */
+
+    /* ── Text ── */
+    --text:     #0F172A;   /* near-black for headings and body */
+    --text-dim: #64748B;   /* medium grey for secondary text */
+
+    /* ── Borders & glow ── */
+    --border:   rgba(0, 0, 0, 0.09);   /* subtle dark border on white */
+    --glow:     rgba(37, 99, 235, 0.15);
+  }
+
+  /* Ghost button hover needs different treatment on white — dark tint instead of white */
+  .btn-ghost:hover {
+    border-color: rgba(0, 0, 0, 0.14);
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Add a soft shadow to cards so they lift off the white page */
+  .feature-card,
+  .mode-card,
+  .store-btn {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+  }
+
+  /* Mockup card shadow — lighter on white page */
+  .mockup {
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--border);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Responsive — Mobile breakpoint at 768px
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Hide nav links on mobile (hamburger menu not implemented — easy to add) */
+  .nav-links { display: none; }
+
+  /* Stack the "How it works" steps vertically */
+  .steps { grid-template-columns: 1fr; }
+  .step  { border-right: none; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+
+  /* Stack footer items vertically */
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 20px;
+  }
+
+  /* Wrap stats band on small screens */
+  .stats-band { flex-wrap: wrap; }
+  .stat-item  { min-width: 140px; border-right: none; border-bottom: 1px solid var(--border); }
+}

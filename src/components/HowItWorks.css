@@ -1,0 +1,59 @@
+/* ── Slightly darker background for this section ── */
+.how-bg { background: var(--bg2); }
+
+/* Steps in a horizontal bordered grid */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  margin-top: 56px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden; /* clips the border-radius on child edges */
+}
+
+/* Individual step */
+.step {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border); /* divider between steps */
+}
+
+.step:last-child {
+  border-right: none; /* no divider after the last step */
+}
+
+/* "STEP 01" label */
+.step-num {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--blue-mid);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Large emoji icon */
+.step-icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.step h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* On mobile: stack vertically with bottom borders instead of right borders */
+@media (max-width: 768px) {
+  .steps { grid-template-columns: 1fr; }
+  .step  { border-right: none; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+}

@@ -1,0 +1,47 @@
+/* ── Stats band — a horizontal row of 4 stats ── */
+.stats-band {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+/* Each stat box — equal width, dividers between them */
+.stat-item {
+  flex: 1;
+  max-width: 220px;
+  padding: 36px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+
+.stat-item:last-child {
+  border-right: none; /* no divider after the last stat */
+}
+
+/* The large gradient number e.g. "25+", "Free", "∞" */
+.stat-num {
+  font-size: 40px;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--blue-mid), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+/* The smaller label below the number */
+.stat-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+/* On mobile: stack and use bottom borders instead of right borders */
+@media (max-width: 768px) {
+  .stats-band { flex-wrap: wrap; }
+  .stat-item  { min-width: 140px; border-right: none; border-bottom: 1px solid var(--border); }
+}

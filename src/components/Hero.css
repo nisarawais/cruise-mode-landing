@@ -1,0 +1,347 @@
+/* ── Hero section ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37,99,235,0.12);
+  border: 1px solid rgba(37,99,235,0.30);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-mid);
+  margin-bottom: 28px;
+  letter-spacing: 0.3px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.hero h1 .grad {
+  background: linear-gradient(90deg, var(--blue-mid), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--text-dim);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Mockup wrapper ── */
+.mockup-wrap {
+  margin-top: 64px;
+  position: relative;
+  display: inline-block;
+}
+
+.mockup-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse at center, rgba(37,99,235,0.20) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Outer card */
+.mockup {
+  width: min(780px, 92vw);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: #1A1F2E;           /* always dark — it's the app UI */
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+  position: relative;
+  text-align: left;
+}
+
+/* macOS traffic light bar */
+.mockup-bar {
+  height: 36px;
+  background: #141928;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.mockup-dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+}
+
+/* ── Map area ── */
+.mockup-map {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+/* The SVG fills the full map area */
+.map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Turn instruction banner — top left ── */
+.nav-turn {
+  position: absolute;
+  top: 12px; left: 12px;
+  max-width: 56%;
+  background: rgba(14,18,32,0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-turn-arrow {
+  font-size: 28px;
+  line-height: 1;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.nav-turn-info { flex: 1; min-width: 0; }
+.nav-turn-info p {
+  font-size: 12px;
+  font-weight: 600;
+  color: #F1F5FF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+/* Highway shield badge */
+.nav-shield {
+  display: inline-block;
+  background: #1E3A8A;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.nav-turn-dist { text-align: right; flex-shrink: 0; }
+.nav-turn-dist strong {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  color: #3B82F6;
+  line-height: 1;
+}
+.nav-turn-dist small {
+  font-size: 10px;
+  color: #3B82F6;
+  font-weight: 600;
+}
+
+/* ── Weather card — top right ── */
+.nav-weather {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 148px;
+  background: rgba(14,18,32,0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.weather-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.weather-icon { font-size: 20px; }
+.weather-temp { font-size: 20px; font-weight: 800; color: #F1F5FF; }
+
+.weather-cond {
+  font-size: 10px;
+  color: #8B93AC;
+  margin-bottom: 6px;
+}
+
+.weather-sun {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #8B93AC;
+  margin-bottom: 5px;
+}
+
+/* Sunrise/sunset progress bar */
+.weather-bar-track {
+  height: 3px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.weather-bar-fill {
+  height: 100%;
+  /* gradient: sunrise orange → noon yellow → sunset orange */
+  background: linear-gradient(90deg, #F97316, #FBBF24, #F97316);
+  border-radius: 2px;
+}
+
+.weather-now {
+  font-size: 10px;
+  color: #8B93AC;
+  text-align: center;
+}
+
+/* ── Location chips — bottom of map ── */
+.nav-chips {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-chip {
+  background: rgba(14,18,32,0.82);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #F1F5FF;
+  white-space: nowrap;
+}
+
+/* ── Bottom navigation HUD ── */
+.nav-hud {
+  background: #111624;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* ETA column */
+.hud-eta { flex-shrink: 0; }
+.hud-eta-time {
+  font-size: 22px;
+  font-weight: 800;
+  color: #F1F5FF;
+  line-height: 1.1;
+}
+.hud-label {
+  font-size: 10px;
+  color: #8B93AC;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+/* Location centre column */
+.hud-loc { flex: 1; min-width: 0; }
+.hud-loc-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #F1F5FF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hud-loc-state {
+  font-size: 11px;
+  color: #8B93AC;
+  margin-bottom: 2px;
+}
+.hud-loc-from {
+  font-size: 10px;
+  color: #8B93AC;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right column: distance, timer, stop button */
+.hud-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.hud-dist strong { font-size: 22px; font-weight: 900; color: #F1F5FF; }
+.hud-dist small  { font-size: 11px; color: #8B93AC; margin-left: 2px; }
+
+.hud-timer {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FBBF24;   /* gold — matches the in-app timer colour */
+}
+
+/* Red stop button */
+.hud-stop {
+  width: 36px; height: 36px;
+  background: #EF4444;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #FFFFFF;
+  cursor: default;
+}
+
+/* ── Light mode ── */
+/* The mockup card intentionally stays dark — it shows the night-theme nav UI.
+   Only the outer card shadow softens on a white page. */
+@media (prefers-color-scheme: light) {
+  .mockup {
+    box-shadow: 0 32px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.08);
+  }
+}

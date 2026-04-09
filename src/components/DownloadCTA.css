@@ -1,0 +1,75 @@
+/* ── Download CTA section ── */
+.cta-section {
+  text-align: center;
+  padding: 120px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind the content */
+.cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(37, 99, 235, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-section h2 {
+  font-size: clamp(32px, 5vw, 58px);
+  margin-bottom: 18px;
+}
+
+.cta-section p {
+  font-size: 18px;
+  color: var(--text-dim);
+  max-width: 500px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+
+/* Row of store buttons */
+.cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* App Store / Google Play button */
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 24px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.store-btn:hover {
+  border-color: rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Large emoji icon on the left */
+.store-icon { font-size: 28px; }
+
+/* Text block: "Download on the" + "App Store" */
+.store-btn-text { text-align: left; }
+
+.store-btn-sub {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.store-btn-name {
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+}
